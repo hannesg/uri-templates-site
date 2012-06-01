@@ -1,11 +1,11 @@
 
-.content > p , .content > ol, .content > ul {
+.content > p , .content > ol, .content > ul, .content h3 {
 
   width: 49%;
   float: left;
   clear: both;
 }
-.content h1, .content h2 {
+.content h1, .content h2{
   float: left;
   clear: both;
   display: block;
@@ -27,6 +27,14 @@
   font-size: 1em;
 }
 
+.content h3{
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 2px;
+  color: #c0c0c0;
+}
+
 .content blockquote {
   clear: both;
   font-family: "Times New Roman", Times, serif;
@@ -41,6 +49,7 @@
 .content dl {
   width: 49%;
   float: right;
+  margin: 0px;
 }
 
 .content dt {

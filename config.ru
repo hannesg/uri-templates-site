@@ -24,7 +24,8 @@ class ExampleCodeGenerator
       if data["variables"]
         code << 'variables = ' << data["variables"].inspect << "\n"
       end
-      code << 'URITemplate.new(' << data['template'].inspect << ').expand(variables)' << "\n"
+      code << 'tpl = ' << data['template'].inspect << "\n"
+      code << 'URITemplate.new(tpl).expand(variables)' << "\n"
       code << '# result: ' <<  result(data).inspect
       return code.join
     end
@@ -127,6 +128,7 @@ class Kramdown::Parser::MyKramdown < Kramdown::Parser::Kramdown
     when 'example'
       @examples ||= 0
       @examples = @examples + 1
+      puts body
       data = YAML.load(body)
       dl = Element.new(:dl)
       puts opts.inspect

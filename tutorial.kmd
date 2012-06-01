@@ -5,46 +5,63 @@ vim: ft=markdown
 uri-templates.github.com
 =======================
 
-> A uri-template is smart way to construct parametrized URIs.
+> __uri-template__: a smart way to construct parametrized URIs
 
+With a uri-template you can describe with one simple String how to 
+create a certain URI from given variables. Before I talk too much, see 
+the "Hello World" example.
 
-Using a uri templates is simple as pie:  
-
-{::example}
-variables: 
-  foo: "foop"
-  boo: 12.41
-template: blaaa
-{:/example}
-
-Dooing complicated things is simple, too!
-
-{::example}
+{::example name="Hello World"}
 variables:
-  barf: [1,2,3]
-template: path{/barf*}f
+  var: "World"
+template: "/hello/{var}"
 {:/example}
 
+What happens here? The string `/hello/{var}` is the uri-template. It is then 
+expand by the library of your choice using the given variables and the result is 
+a URI.
 
-And maps are even cooler!
 
-{::example}
+The different expression types
+--------------------
+
+The expression type is determined by the first character between the braces. 
+
+### simple
+
+A simple expression has no operator. It simply insert the content of the variable with 
+escaping. It's simple, but straight forward.
+
+{::example name="simple expression"}
 variables:
-  foo:
-    bla: 13.421
-    blub: bluuub
-template: fff{?foo*}fff
+  a: "a_simple_string"
+  b: "50% of 30€"
+template: "/{a}?value={b}"
 {:/example}
 
+### reserved "+"
 
-Next chapter
---------------
+Reserved expressions behave very much like simple expression but they are not escaped. 
+Use this with caution because you can create invalid URIs with this.
 
-However it would be way cooler to have arrays.
-
-{::example name="being awesome"}
-template: fff{?foo}
+{::example name="reserved expression"}
+variables:
+  path: "/foo/bar"
+template: "/{path}/{+path}"
 {:/example}
+
+### fragment "#"
+
+### labeled "."
+
+### path segment "/"
+
+### path parameter ";"
+
+### query "?"
+
+### query continuation "&"
+
 
 And a Chapter with an insanely long headline that will never ever fit.
 --------------------
@@ -57,12 +74,16 @@ DONE!
 Existing Implementations
 ----------------------------
 
-- Ruby 
-  - [uri_template](https://github.com/hannesg/uri_template)
-- Python
-  - [uritemplate-py](https://github.com/uri-templates/uritemplate-py)
+- C#
+  - [UriTemplates](https://github.com/darrelmiller/UriTemplates)
+- Eiffel
+  - [part of the EWF](https://github.com/EiffelWebFramework/EWF/tree/master/library/protocol/uri_template=)
 - Java
   - [Handy-URI-Templates](https://github.com/damnhandy/Handy-URI-Templates)
 - Javascript
   - [uri-templates](https://github.com/marc-portier/uri-templates)
+- Python
+  - [uritemplate-py](https://github.com/uri-templates/uritemplate-py)
+- Ruby 
+  - [uri_template](https://github.com/hannesg/uri_template)
 
