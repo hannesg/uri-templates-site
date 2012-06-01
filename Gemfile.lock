@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.0.6)
+    kramdown (0.13.6)
+    rack (1.4.1)
+    shotgun (0.9)
+      rack (>= 1.0)
+    uri_template (0.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  coderay
+  kramdown
+  rack
+  shotgun
+  uri_template

@@ -1,0 +1,68 @@
+{::comment}
+vim: ft=markdown
+{:/comment}
+
+uri-templates.github.com
+=======================
+
+> A uri-template is smart way to construct parametrized URIs.
+
+
+Using a uri templates is simple as pie:  
+
+{::example}
+variables: 
+  foo: "foop"
+  boo: 12.41
+template: blaaa
+{:/example}
+
+Dooing complicated things is simple, too!
+
+{::example}
+variables:
+  barf: [1,2,3]
+template: path{/barf*}f
+{:/example}
+
+
+And maps are even cooler!
+
+{::example}
+variables:
+  foo:
+    bla: 13.421
+    blub: bluuub
+template: fff{?foo*}fff
+{:/example}
+
+
+Next chapter
+--------------
+
+However it would be way cooler to have arrays.
+
+{::example name="being awesome"}
+template: fff{?foo}
+{:/example}
+
+And a Chapter with an insanely long headline that will never ever fit.
+--------------------
+
+And a textblock with an even longer line, so that I can test how wide blocks are rendered.
+DONE!
+
+
+
+Existing Implementations
+----------------------------
+
+- Ruby 
+  - [uri_template](https://github.com/hannesg/uri_template)
+- Python
+  - [uritemplate-py](https://github.com/uri-templates/uritemplate-py)
+- Java
+  - [Handy-URI-Templates](https://github.com/damnhandy/Handy-URI-Templates)
+- Javascript
+  - [uri-templates](https://github.com/marc-portier/uri-templates)
+
