@@ -52,9 +52,51 @@ template: "/{path}/{+path}"
 
 ### fragment "#"
 
+The fragement expression is made for, uhm well, the fragment part of uri. It prepends 
+the given value with a "#".
+
+{::example name="fragment expression"}
+variables:
+  fragment: "!anchor2"
+template: "index.html{#fragment}"
+{:/example}
+
 ### labeled "."
 
+The labeled expression is very useful for file extensions. It prepends every given 
+value with a dot. For multiple extensions, you can use the explode modifier.
+
+{::example name="labeled expressions"}
+variables:
+  extension: php
+template: "index{.extension}"
+{:/example}
+{::example name="labeled expressions with explode"}
+variables:
+  extensions:
+    - foo
+    - bar
+    - php
+template: "index{.extensions*}"
+{:/example}
+
 ### path segment "/"
+
+Behaves pretty much like the labeled expression, but prepends the values with a 
+slash instead of a dot.
+
+{::example name="path segment expressions"}
+variables:
+  path: www
+template: "{/path}/index.htm"
+{:/example}
+{::example name="path segment expressions with explode"}
+variables:
+  path:
+    - var
+    - www
+template: "{/path*}/index.htm"
+{:/example}
 
 ### path parameter ";"
 
