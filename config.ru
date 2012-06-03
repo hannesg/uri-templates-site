@@ -147,7 +147,10 @@ end
 
 def wrap_site(content)
   [
-  '<html><head><link rel="stylesheet" href="css/foo.css" /><link rel="stylesheet" href="css/coderay.css" />',
+  '<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" /><link rel="stylesheet" href="css/foo.css" /><link rel="stylesheet" href="css/coderay.css" />',
   '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>',
   '<script src="js/foo.js"></script>',
   '</head><body>',
